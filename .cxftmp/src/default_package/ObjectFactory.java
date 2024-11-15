@@ -25,12 +25,12 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _ListarClinicasServer_QNAME = new QName("http://default_package/", "listarClinicas_Server");
-	private final static QName _ListarClinicasServerResponse_QNAME = new QName("http://default_package/", "listarClinicas_ServerResponse");
-	private final static QName _ListarConsultasServer_QNAME = new QName("http://default_package/", "listarConsultas_Server");
+    private final static QName _ListarClinicasServerResponse_QNAME = new QName("http://default_package/", "listarClinicas_ServerResponse");
+    private final static QName _ListarConsultasServer_QNAME = new QName("http://default_package/", "listarConsultas_Server");
     private final static QName _ListarConsultasServerResponse_QNAME = new QName("http://default_package/", "listarConsultas_ServerResponse");
     private final static QName _MarcarConsultasServer_QNAME = new QName("http://default_package/", "marcarConsultas_Server");
-	private final static QName _MarcarConsultasServerResponse_QNAME = new QName("http://default_package/", "marcarConsultas_ServerResponse");
-	private final static QName _NotBoundException_QNAME = new QName("http://default_package/", "NotBoundException");
+    private final static QName _MarcarConsultasServerResponse_QNAME = new QName("http://default_package/", "marcarConsultas_ServerResponse");
+    private final static QName _NotBoundException_QNAME = new QName("http://default_package/", "NotBoundException");
     private final static QName _MalformedURLException_QNAME = new QName("http://default_package/", "MalformedURLException");
 
     /**
@@ -48,7 +48,7 @@ public class ObjectFactory {
         return new ListarClinicasServer();
     }
 
-	/**
+    /**
      * Create an instance of {@link ListarClinicasServerResponse }
      * 
      */
@@ -56,7 +56,7 @@ public class ObjectFactory {
         return new ListarClinicasServerResponse();
     }
 
-	/**
+    /**
      * Create an instance of {@link ListarConsultasServer }
      * 
      */
@@ -80,7 +80,7 @@ public class ObjectFactory {
         return new MarcarConsultasServer();
     }
 
-	/**
+    /**
      * Create an instance of {@link MarcarConsultasServerResponse }
      * 
      */
@@ -88,7 +88,7 @@ public class ObjectFactory {
         return new MarcarConsultasServerResponse();
     }
 
-	/**
+    /**
      * Create an instance of {@link NotBoundException }
      * 
      */
@@ -117,7 +117,7 @@ public class ObjectFactory {
         return new JAXBElement<ListarClinicasServer>(_ListarClinicasServer_QNAME, ListarClinicasServer.class, null, value);
     }
 
-	/**
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ListarClinicasServerResponse }{@code >}
      * 
      * @param value
@@ -130,7 +130,7 @@ public class ObjectFactory {
         return new JAXBElement<ListarClinicasServerResponse>(_ListarClinicasServerResponse_QNAME, ListarClinicasServerResponse.class, null, value);
     }
 
-	/**
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ListarConsultasServer }{@code >}
      * 
      * @param value
@@ -169,7 +169,7 @@ public class ObjectFactory {
         return new JAXBElement<MarcarConsultasServer>(_MarcarConsultasServer_QNAME, MarcarConsultasServer.class, null, value);
     }
 
-	/**
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link MarcarConsultasServerResponse }{@code >}
      * 
      * @param value
@@ -182,7 +182,7 @@ public class ObjectFactory {
         return new JAXBElement<MarcarConsultasServerResponse>(_MarcarConsultasServerResponse_QNAME, MarcarConsultasServerResponse.class, null, value);
     }
 
-	/**
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link NotBoundException }{@code >}
      * 
      * @param value

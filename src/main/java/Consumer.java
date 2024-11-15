@@ -1,4 +1,6 @@
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+
+import java.rmi.RemoteException;
 import java.util.Scanner;
 import default_package.FrontEndClinica;
 import default_package.MalformedURLException_Exception;
@@ -7,7 +9,7 @@ import default_package.NotBoundException_Exception;
 
 public class Consumer {
 
-    public static void main(String[] args) throws NotBoundException_Exception, MalformedURLException_Exception {
+    public static void main(String[] args) throws NotBoundException_Exception { //, MalformedURLException_Exception
 
         JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();        
 
@@ -19,12 +21,14 @@ public class Consumer {
 
         Object client = factory.create();
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Insira o número de cliente: ");
+        int clientID = scanner.nextInt(); //aqui vai acontecer a autenticação
+        scanner.nextLine();
         
-
         while (true) {
             System.out.println("\n--- SOAP Client Menu ---");
             System.out.println("1. Listar Consultas");
-            System.out.println("2. Outra Operação");
+            System.out.println("2. Marcar consulta");
             System.out.println("3. Sair");
             System.out.print("Escolha uma opção: ");
             
@@ -33,12 +37,8 @@ public class Consumer {
 
             switch (choice) {
                 case 1:
-                	
-                    System.out.print("Digite o ID para listar consultas: ");
-                    int id = scanner.nextInt();
-                    scanner.nextLine();
                     try {	
-                    	String response = ((FrontEndClinica)client).listarConsultasServer(id);
+                    	String response = ((FrontEndClinica)client).listarConsultasServer(clientID);
                     	System.out.println(response); 
                     	
                     } catch (SecurityException | IllegalArgumentException e) {
@@ -47,7 +47,67 @@ public class Consumer {
                     break;
                     
                 case 2:
-                    System.out.println("Opção não implementada.");
+                	
+                	//  String marcarConsulta(int dia, int mes, int ano, int hora, int clientID, int clinicaID, int especialidadeID) throws RemoteException;
+                    System.out.println("Insira o dia: ");
+                    int dia = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Insira o mês: ");
+                    int mes = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Insira o ano: ");
+                    int ano = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Insira a hora: ");
+                    int hora = scanner.nextInt();
+                    scanner.nextLine();
+                    
+                    
+                    /*
+                    try {	
+                    	String response = ((FrontEndClinica)client).listarClinicasServer();
+                    	System.out.println(response); 
+                    	
+                    } catch (SecurityException | IllegalArgumentException e) {
+                        e.printStackTrace();
+                    }
+                    */
+                    
+                    System.out.println("Insira a clinica: ");
+                    int clinicaID = scanner.nextInt();
+                    scanner.nextLine();
+
+                    
+                    /*
+                    
+                    try {	
+                    	String response = ((FrontEndClinica)client).listaEspecialidadesServer(clinicaID);
+                    	System.out.println(response); 
+                    	
+                    } catch (SecurityException | IllegalArgumentException e) {
+                        e.printStackTrace();
+                    }
+                    
+                    */
+                    System.out.println("Insira a especialidade: ");
+                    int especialidadeID = scanner.nextInt();
+                    scanner.nextLine();
+                
+                    
+                    
+                    
+                    try {	
+                    	String response = ((FrontEndClinica)client).marcarConsultasServer(dia, mes, ano, hora, clientID, clinicaID, especialidadeID);
+                    	System.out.println(response); 
+                    	
+                    } catch (SecurityException | IllegalArgumentException e) {
+                        e.printStackTrace();
+                    }
+                    
+                    
+                    
+                    
+                    
                     break;
                 case 3:
                     System.out.println("Encerrando o cliente.");
