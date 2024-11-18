@@ -8,6 +8,7 @@ import default_package.NotBoundException_Exception;
 
 
 public class Consumer {
+	//adasfds
 
     public static void main(String[] args) throws NotBoundException_Exception, MalformedURLException_Exception { //, MalformedURLException_Exception
 
