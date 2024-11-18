@@ -8,12 +8,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for listarClinicas_ServerResponse complex type.
+ * <p>Java class for removerConsulta_ServerResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="listarClinicas_ServerResponse"&gt;
+ * &lt;complexType name="removerConsulta_ServerResponse"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
@@ -27,10 +27,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "listarClinicas_ServerResponse", propOrder = {
+@XmlType(name = "removerConsulta_ServerResponse", propOrder = {
     "_return"
 })
-public class ListarClinicasServerResponse {
+public class RemoverConsultaServerResponse {
 
     @XmlElement(name = "return")
     protected String _return;

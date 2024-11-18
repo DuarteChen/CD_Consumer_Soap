@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for listarEspecialidades_Server complex type.
+ * <p>Java class for removerConsulta_Server complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="listarEspecialidades_Server"&gt;
+ * &lt;complexType name="removerConsulta_Server"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
@@ -26,10 +26,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "listarEspecialidades_Server", propOrder = {
+@XmlType(name = "removerConsulta_Server", propOrder = {
     "arg0"
 })
-public class ListarEspecialidadesServer {
+public class RemoverConsultaServer {
 
     protected int arg0;
 

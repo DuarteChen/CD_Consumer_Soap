@@ -28,8 +28,12 @@ public class ObjectFactory {
 	private final static QName _ListarClinicasServerResponse_QNAME = new QName("http://default_package/", "listarClinicas_ServerResponse");
 	private final static QName _ListarConsultasServer_QNAME = new QName("http://default_package/", "listarConsultas_Server");
     private final static QName _ListarConsultasServerResponse_QNAME = new QName("http://default_package/", "listarConsultas_ServerResponse");
-    private final static QName _MarcarConsultasServer_QNAME = new QName("http://default_package/", "marcarConsultas_Server");
+    private final static QName _ListarEspecialidadesServer_QNAME = new QName("http://default_package/", "listarEspecialidades_Server");
+	private final static QName _ListarEspecialidadesServerResponse_QNAME = new QName("http://default_package/", "listarEspecialidades_ServerResponse");
+	private final static QName _MarcarConsultasServer_QNAME = new QName("http://default_package/", "marcarConsultas_Server");
 	private final static QName _MarcarConsultasServerResponse_QNAME = new QName("http://default_package/", "marcarConsultas_ServerResponse");
+	private final static QName _RemoverConsultaServer_QNAME = new QName("http://default_package/", "removerConsulta_Server");
+	private final static QName _RemoverConsultaServerResponse_QNAME = new QName("http://default_package/", "removerConsulta_ServerResponse");
 	private final static QName _NotBoundException_QNAME = new QName("http://default_package/", "NotBoundException");
     private final static QName _MalformedURLException_QNAME = new QName("http://default_package/", "MalformedURLException");
 
@@ -73,6 +77,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ListarEspecialidadesServer }
+     * 
+     */
+    public ListarEspecialidadesServer createListarEspecialidadesServer() {
+        return new ListarEspecialidadesServer();
+    }
+
+	/**
+     * Create an instance of {@link ListarEspecialidadesServerResponse }
+     * 
+     */
+    public ListarEspecialidadesServerResponse createListarEspecialidadesServerResponse() {
+        return new ListarEspecialidadesServerResponse();
+    }
+
+	/**
      * Create an instance of {@link MarcarConsultasServer }
      * 
      */
@@ -86,6 +106,22 @@ public class ObjectFactory {
      */
     public MarcarConsultasServerResponse createMarcarConsultasServerResponse() {
         return new MarcarConsultasServerResponse();
+    }
+
+	/**
+     * Create an instance of {@link RemoverConsultaServer }
+     * 
+     */
+    public RemoverConsultaServer createRemoverConsultaServer() {
+        return new RemoverConsultaServer();
+    }
+
+	/**
+     * Create an instance of {@link RemoverConsultaServerResponse }
+     * 
+     */
+    public RemoverConsultaServerResponse createRemoverConsultaServerResponse() {
+        return new RemoverConsultaServerResponse();
     }
 
 	/**
@@ -112,8 +148,9 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link ListarClinicasServer }{@code >}
      */
+//    @XmlElementDecl(namespace = "http://default_package/", name = "listarClinicas_Server")
     @XmlElementDecl(namespace = "http://default_package/", name = "listarClinicas_Server")
-    public JAXBElement<ListarClinicasServer> createListarClinicasServer(ListarClinicasServer value) {
+	public JAXBElement<ListarClinicasServer> createListarClinicasServer(ListarClinicasServer value) {
         return new JAXBElement<ListarClinicasServer>(_ListarClinicasServer_QNAME, ListarClinicasServer.class, null, value);
     }
 
@@ -125,8 +162,9 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link ListarClinicasServerResponse }{@code >}
      */
+//    @XmlElementDecl(namespace = "http://default_package/", name = "listarClinicas_ServerResponse")
     @XmlElementDecl(namespace = "http://default_package/", name = "listarClinicas_ServerResponse")
-    public JAXBElement<ListarClinicasServerResponse> createListarClinicasServerResponse(ListarClinicasServerResponse value) {
+	public JAXBElement<ListarClinicasServerResponse> createListarClinicasServerResponse(ListarClinicasServerResponse value) {
         return new JAXBElement<ListarClinicasServerResponse>(_ListarClinicasServerResponse_QNAME, ListarClinicasServerResponse.class, null, value);
     }
 
@@ -157,6 +195,32 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarEspecialidadesServer }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ListarEspecialidadesServer }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://default_package/", name = "listarEspecialidades_Server")
+    public JAXBElement<ListarEspecialidadesServer> createListarEspecialidadesServer(ListarEspecialidadesServer value) {
+        return new JAXBElement<ListarEspecialidadesServer>(_ListarEspecialidadesServer_QNAME, ListarEspecialidadesServer.class, null, value);
+    }
+
+	/**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarEspecialidadesServerResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ListarEspecialidadesServerResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://default_package/", name = "listarEspecialidades_ServerResponse")
+    public JAXBElement<ListarEspecialidadesServerResponse> createListarEspecialidadesServerResponse(ListarEspecialidadesServerResponse value) {
+        return new JAXBElement<ListarEspecialidadesServerResponse>(_ListarEspecialidadesServerResponse_QNAME, ListarEspecialidadesServerResponse.class, null, value);
+    }
+
+	/**
      * Create an instance of {@link JAXBElement }{@code <}{@link MarcarConsultasServer }{@code >}
      * 
      * @param value
@@ -164,8 +228,9 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link MarcarConsultasServer }{@code >}
      */
+//    @XmlElementDecl(namespace = "http://default_package/", name = "marcarConsultas_Server")
     @XmlElementDecl(namespace = "http://default_package/", name = "marcarConsultas_Server")
-    public JAXBElement<MarcarConsultasServer> createMarcarConsultasServer(MarcarConsultasServer value) {
+	public JAXBElement<MarcarConsultasServer> createMarcarConsultasServer(MarcarConsultasServer value) {
         return new JAXBElement<MarcarConsultasServer>(_MarcarConsultasServer_QNAME, MarcarConsultasServer.class, null, value);
     }
 
@@ -177,9 +242,36 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link MarcarConsultasServerResponse }{@code >}
      */
+//    @XmlElementDecl(namespace = "http://default_package/", name = "marcarConsultas_ServerResponse")
     @XmlElementDecl(namespace = "http://default_package/", name = "marcarConsultas_ServerResponse")
-    public JAXBElement<MarcarConsultasServerResponse> createMarcarConsultasServerResponse(MarcarConsultasServerResponse value) {
+	public JAXBElement<MarcarConsultasServerResponse> createMarcarConsultasServerResponse(MarcarConsultasServerResponse value) {
         return new JAXBElement<MarcarConsultasServerResponse>(_MarcarConsultasServerResponse_QNAME, MarcarConsultasServerResponse.class, null, value);
+    }
+
+	/**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RemoverConsultaServer }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link RemoverConsultaServer }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://default_package/", name = "removerConsulta_Server")
+    public JAXBElement<RemoverConsultaServer> createRemoverConsultaServer(RemoverConsultaServer value) {
+        return new JAXBElement<RemoverConsultaServer>(_RemoverConsultaServer_QNAME, RemoverConsultaServer.class, null, value);
+    }
+
+	/**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RemoverConsultaServerResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link RemoverConsultaServerResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://default_package/", name = "removerConsulta_ServerResponse")
+    public JAXBElement<RemoverConsultaServerResponse> createRemoverConsultaServerResponse(RemoverConsultaServerResponse value) {
+        return new JAXBElement<RemoverConsultaServerResponse>(_RemoverConsultaServerResponse_QNAME, RemoverConsultaServerResponse.class, null, value);
     }
 
 	/**
