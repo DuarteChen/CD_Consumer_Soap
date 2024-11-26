@@ -3,6 +3,7 @@ import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import java.rmi.RemoteException;
 import java.util.Scanner;
 import default_package.FrontEndClinica;
+import default_package.IOException_Exception;
 import default_package.MalformedURLException_Exception;
 import default_package.NotBoundException_Exception;
 
@@ -10,7 +11,7 @@ import default_package.NotBoundException_Exception;
 public class Consumer {
 	//adasfds
 
-    public static void main(String[] args) throws NotBoundException_Exception, MalformedURLException_Exception { //, MalformedURLException_Exception
+    public static void main(String[] args) throws NotBoundException_Exception, MalformedURLException_Exception, IOException_Exception { //, MalformedURLException_Exception
 
         JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();        
 
@@ -22,19 +23,85 @@ public class Consumer {
 
         Object client = factory.create();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Insira o ID do cliente: ");
-        int clientID = scanner.nextInt(); //aqui vai acontecer a autenticação
-        scanner.nextLine();
         
-        while (true) {
+        System.out.println("1. Login");
+        System.out.println("2. registar");
+        
+        int choice = scanner.nextInt();
+        scanner.nextLine(); // Consumir a quebra de linha após a entrada do número
+        String clientIDString = "0";
+
+        if (choice == 1) {
+            // Lógica de login
+            while (clientIDString.equals("0")) {
+                System.out.println("Insira o user name: ");
+                String username = scanner.nextLine(); // Entrada do username
+                System.out.println("Insira a palavra passe: ");
+                String pass = scanner.nextLine(); // Entrada da senha
+
+                clientIDString = ((FrontEndClinica) client).autenticar(username, pass);
+                if (clientIDString.equals("0")) {
+                    System.out.println("Credenciais erradas. Tente novamente.");
+                }
+            }
+            System.out.println("Login bem-sucedido! ID do cliente: " + clientIDString);
+        } else if (choice == 2) {
+            // Lógica de registro
+            String registado = "Usuário já existe!";
+            while (registado.equals("Usuário já existe!")) {
+                System.out.println("Insira o user name: ");
+                String username = scanner.nextLine(); // Entrada do username
+                System.out.println("Insira a palavra passe a definir: ");
+                String pass = scanner.nextLine(); // Entrada da senha
+
+                registado = ((FrontEndClinica) client).registar(username, pass);
+                if (registado.equals("Usuário já existe!")) {
+                    System.out.println("Erro: Usuário já existe! Tente novamente.");
+                }
+            }
+            System.out.println("Registro bem-sucedido! Por favor, faça login.");
+
+            // Lógica de login após registro
+            while (clientIDString.equals("0")) {
+                System.out.println("Insira o user name: ");
+                String username = scanner.nextLine(); // Entrada do username
+                System.out.println("Insira a palavra passe: ");
+                String pass = scanner.nextLine(); // Entrada da senha
+
+                clientIDString = ((FrontEndClinica) client).autenticar(username, pass);
+                if (clientIDString.equals("0")) {
+                    System.out.println("Credenciais erradas. Tente novamente.");
+                }
+            }
+            System.out.println("Login bem-sucedido! ID do cliente: " + clientIDString);
+        } else {
+            System.out.println("Opção inválida! Por favor, escolha 1 (Login) ou 2 (Registrar).");
+        }
+
+        
+        Integer clientID = 0;
+
+        try {
+            clientID = Integer.valueOf(clientIDString);  // Converts String to Integer
+            System.out.println("clientIdAsInteger: " + clientID);  // Prints the Integer object
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number format: " + clientIDString);  // Catches invalid format cases
+        }
+
+        
+        
+      
+        
+        while (clientID != 0) {
             System.out.println("\n--- SOAP Client Menu ---");
             System.out.println("1. Listar Consultas");
             System.out.println("2. Marcar consulta");
             System.out.println("3. Cancelar consulta");
-            System.out.println("4. Sair");
+            System.out.println("5. Sair");
             System.out.print("Escolha uma opcao: ");
             
-            int choice = scanner.nextInt();
+            choice = 0;
+            choice = scanner.nextInt();
             scanner.nextLine();
 
             switch (choice) {
@@ -140,10 +207,7 @@ public class Consumer {
                     
                     
                     break;
-                case 4:
-                    System.out.println("Encerrando o cliente.");
-                    scanner.close();
-                    return;
+                
                 default:
                     System.out.println("Opcao invalida. Tente novamente.");
             }

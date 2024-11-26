@@ -24,7 +24,11 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _ListarClinicasServer_QNAME = new QName("http://default_package/", "listarClinicas_Server");
+    private final static QName _Registar_QNAME = new QName("http://default_package/", "Registar");
+	private final static QName _RegistarResponse_QNAME = new QName("http://default_package/", "RegistarResponse");
+	private final static QName _Autenticar_QNAME = new QName("http://default_package/", "autenticar");
+	private final static QName _AutenticarResponse_QNAME = new QName("http://default_package/", "autenticarResponse");
+	private final static QName _ListarClinicasServer_QNAME = new QName("http://default_package/", "listarClinicas_Server");
 	private final static QName _ListarClinicasServerResponse_QNAME = new QName("http://default_package/", "listarClinicas_ServerResponse");
 	private final static QName _ListarConsultasServer_QNAME = new QName("http://default_package/", "listarConsultas_Server");
     private final static QName _ListarConsultasServerResponse_QNAME = new QName("http://default_package/", "listarConsultas_ServerResponse");
@@ -37,7 +41,9 @@ public class ObjectFactory {
 	private final static QName _NotBoundException_QNAME = new QName("http://default_package/", "NotBoundException");
     private final static QName _MalformedURLException_QNAME = new QName("http://default_package/", "MalformedURLException");
 
-    /**
+    private final static QName _IOException_QNAME = new QName("http://default_package/", "IOException");
+
+	/**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: default_package
      * 
      */
@@ -45,6 +51,38 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Registar }
+     * 
+     */
+    public Registar createRegistar() {
+        return new Registar();
+    }
+
+	/**
+     * Create an instance of {@link RegistarResponse }
+     * 
+     */
+    public RegistarResponse createRegistarResponse() {
+        return new RegistarResponse();
+    }
+
+	/**
+     * Create an instance of {@link Autenticar }
+     * 
+     */
+    public Autenticar createAutenticar() {
+        return new Autenticar();
+    }
+
+	/**
+     * Create an instance of {@link AutenticarResponse }
+     * 
+     */
+    public AutenticarResponse createAutenticarResponse() {
+        return new AutenticarResponse();
+    }
+
+	/**
      * Create an instance of {@link ListarClinicasServer }
      * 
      */
@@ -141,6 +179,66 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link IOException }
+     * 
+     */
+    public IOException createIOException() {
+        return new IOException();
+    }
+
+	/**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Registar }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Registar }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://default_package/", name = "Registar")
+    public JAXBElement<Registar> createRegistar(Registar value) {
+        return new JAXBElement<Registar>(_Registar_QNAME, Registar.class, null, value);
+    }
+
+	/**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegistarResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link RegistarResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://default_package/", name = "RegistarResponse")
+    public JAXBElement<RegistarResponse> createRegistarResponse(RegistarResponse value) {
+        return new JAXBElement<RegistarResponse>(_RegistarResponse_QNAME, RegistarResponse.class, null, value);
+    }
+
+	/**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Autenticar }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Autenticar }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://default_package/", name = "autenticar")
+    public JAXBElement<Autenticar> createAutenticar(Autenticar value) {
+        return new JAXBElement<Autenticar>(_Autenticar_QNAME, Autenticar.class, null, value);
+    }
+
+	/**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AutenticarResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AutenticarResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://default_package/", name = "autenticarResponse")
+    public JAXBElement<AutenticarResponse> createAutenticarResponse(AutenticarResponse value) {
+        return new JAXBElement<AutenticarResponse>(_AutenticarResponse_QNAME, AutenticarResponse.class, null, value);
+    }
+
+	/**
      * Create an instance of {@link JAXBElement }{@code <}{@link ListarClinicasServer }{@code >}
      * 
      * @param value
@@ -298,6 +396,19 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://default_package/", name = "MalformedURLException")
     public JAXBElement<MalformedURLException> createMalformedURLException(MalformedURLException value) {
         return new JAXBElement<MalformedURLException>(_MalformedURLException_QNAME, MalformedURLException.class, null, value);
+    }
+
+	/**
+     * Create an instance of {@link JAXBElement }{@code <}{@link IOException }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link IOException }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://default_package/", name = "IOException")
+    public JAXBElement<IOException> createIOException(IOException value) {
+        return new JAXBElement<IOException>(_IOException_QNAME, IOException.class, null, value);
     }
 
 }
