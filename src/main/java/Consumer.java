@@ -1,4 +1,7 @@
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+
+import java.awt.Desktop;
+import java.net.URI;
 import java.util.Scanner;
 import default_package.FrontEndClinica;
 import default_package.IOException_Exception;
@@ -16,6 +19,9 @@ public class Consumer {
 
         Object client = factory.create();
         Scanner scanner = new Scanner(System.in);
+        
+
+        
 
         while (true) { // Loop externo para operação contínua
             String clientIDString = "0";
@@ -80,10 +86,13 @@ public class Consumer {
                 System.out.println("2. Marcar Consulta");
                 System.out.println("3. Cancelar Consulta");
                 System.out.println("4. Sair");
+                System.out.print("\n");
                 System.out.print("Escolha uma opção: ");
 
                 int escolha = scanner.nextInt();
                 scanner.nextLine();
+                
+             
 
                 switch (escolha) {
                     case 1:
@@ -117,6 +126,13 @@ public class Consumer {
                             System.out.println("Insira o ID da clínica: ");
                             int clinicaID = scanner.nextInt();
                             scanner.nextLine();
+                            
+                            String cord = ((FrontEndClinica) client).locClinica(clinicaID);
+                            String[] parts = cord.split(";");
+                            double latitude = Double.parseDouble(parts[0]);
+                            double longitude = Double.parseDouble(parts[1]);
+                            openGoogleMapsInBrowser(latitude, longitude);
+
 
                             String especialidades = ((FrontEndClinica) client).listarEspecialidadesServer(clinicaID);
                             System.out.println(especialidades);
@@ -158,8 +174,24 @@ public class Consumer {
 
                     default:
                         System.out.println("Opção inválida. Tente novamente.");
+                        
+                        
+                        
+                        
                 }
             }
         }
     }
+    
+    
+    public static void openGoogleMapsInBrowser(double latitude, double longitude) {
+        try {
+            String googleMapsUrl = "https://www.google.com/maps?q=" + latitude + "," + longitude + "&hl=en";
+            URI uri = new URI(googleMapsUrl);
+            Desktop.getDesktop().browse(uri);  // Open the URL in the default browser
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+}
 }

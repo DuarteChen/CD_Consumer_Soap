@@ -34,10 +34,9 @@ import javax.xml.bind.annotation.XmlType;
 public class RemoverConsultaServer {
 
     protected int arg0;
-
     protected int arg1;
 
-	/**
+    /**
      * Gets the value of the arg0 property.
      * 
      */
@@ -53,7 +52,7 @@ public class RemoverConsultaServer {
         this.arg0 = value;
     }
 
-	/**
+    /**
      * Gets the value of the arg1 property.
      * 
      */
@@ -61,7 +60,7 @@ public class RemoverConsultaServer {
         return arg1;
     }
 
-	/**
+    /**
      * Sets the value of the arg1 property.
      * 
      */
