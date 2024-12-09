@@ -85,7 +85,8 @@ public class Consumer {
                 System.out.println("1. Listar Consultas");
                 System.out.println("2. Marcar Consulta");
                 System.out.println("3. Cancelar Consulta");
-                System.out.println("4. Sair");
+                System.out.println("4. As nossas clínicas");
+                System.out.println("5. Sair");
                 System.out.print("\n");
                 System.out.print("Escolha uma opção: ");
 
@@ -126,12 +127,6 @@ public class Consumer {
                             System.out.println("Insira o ID da clínica: ");
                             int clinicaID = scanner.nextInt();
                             scanner.nextLine();
-                            
-                            String cord = ((FrontEndClinica) client).locClinica(clinicaID);
-                            String[] parts = cord.split(";");
-                            double latitude = Double.parseDouble(parts[0]);
-                            double longitude = Double.parseDouble(parts[1]);
-                            openGoogleMapsInBrowser(latitude, longitude);
 
 
                             String especialidades = ((FrontEndClinica) client).listarEspecialidadesServer(clinicaID);
@@ -166,8 +161,34 @@ public class Consumer {
                             e.printStackTrace();
                         }
                         break;
-
+                        
                     case 4:
+                    	
+                    	
+                    	
+                	try {
+                            String clinicas = ((FrontEndClinica) client).listarClinicasServer();
+                            System.out.println(clinicas);
+
+                            System.out.println("Insira o ID da clínica: ");
+                            int clinicaID = scanner.nextInt();
+                            scanner.nextLine();
+                            
+                            String cord = ((FrontEndClinica) client).locClinicaServer(clinicaID);
+                            String[] parts = cord.split(";");
+                            double latitude = Double.parseDouble(parts[0]);
+                            double longitude = Double.parseDouble(parts[1]);
+                            openGoogleMapsInBrowser(latitude, longitude);
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    	
+                    
+                    	
+
+                    case 5:
                         System.out.println("Saindo...");
                         clientID = 0; // Reseta o ID do cliente para sair
                         break;

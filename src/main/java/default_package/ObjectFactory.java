@@ -34,7 +34,9 @@ public class ObjectFactory {
     private final static QName _ListarConsultasServerResponse_QNAME = new QName("http://default_package/", "listarConsultas_ServerResponse");
     private final static QName _ListarEspecialidadesServer_QNAME = new QName("http://default_package/", "listarEspecialidades_Server");
     private final static QName _ListarEspecialidadesServerResponse_QNAME = new QName("http://default_package/", "listarEspecialidades_ServerResponse");
-    private final static QName _MarcarConsultasServer_QNAME = new QName("http://default_package/", "marcarConsultas_Server");
+    private final static QName _LocClinicaServer_QNAME = new QName("http://default_package/", "locClinica_Server");
+	private final static QName _LocClinicaServerResponse_QNAME = new QName("http://default_package/", "locClinica_ServerResponse");
+	private final static QName _MarcarConsultasServer_QNAME = new QName("http://default_package/", "marcarConsultas_Server");
     private final static QName _MarcarConsultasServerResponse_QNAME = new QName("http://default_package/", "marcarConsultas_ServerResponse");
     private final static QName _RemoverConsultaServer_QNAME = new QName("http://default_package/", "removerConsulta_Server");
     private final static QName _RemoverConsultaServerResponse_QNAME = new QName("http://default_package/", "removerConsulta_ServerResponse");
@@ -130,6 +132,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link LocClinicaServer }
+     * 
+     */
+    public LocClinicaServer createLocClinicaServer() {
+        return new LocClinicaServer();
+    }
+
+	/**
+     * Create an instance of {@link LocClinicaServerResponse }
+     * 
+     */
+    public LocClinicaServerResponse createLocClinicaServerResponse() {
+        return new LocClinicaServerResponse();
+    }
+
+	/**
      * Create an instance of {@link MarcarConsultasServer }
      * 
      */
@@ -316,6 +334,32 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LocClinicaServer }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link LocClinicaServer }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://default_package/", name = "locClinica_Server")
+    public JAXBElement<LocClinicaServer> createLocClinicaServer(LocClinicaServer value) {
+        return new JAXBElement<LocClinicaServer>(_LocClinicaServer_QNAME, LocClinicaServer.class, null, value);
+    }
+
+	/**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LocClinicaServerResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link LocClinicaServerResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://default_package/", name = "locClinica_ServerResponse")
+    public JAXBElement<LocClinicaServerResponse> createLocClinicaServerResponse(LocClinicaServerResponse value) {
+        return new JAXBElement<LocClinicaServerResponse>(_LocClinicaServerResponse_QNAME, LocClinicaServerResponse.class, null, value);
+    }
+
+	/**
      * Create an instance of {@link JAXBElement }{@code <}{@link MarcarConsultasServer }{@code >}
      * 
      * @param value
