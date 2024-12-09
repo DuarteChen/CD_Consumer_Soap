@@ -60,7 +60,7 @@ public class Consumer {
                     System.out.println("Registro bem-sucedido! Por favor, faça login.");
                     continue; // Retorna ao login após registro
                 } else {
-                    System.out.println("Opção inválida! Por favor, escolha 1 (Login) ou 2 (Registrar).");
+                    System.out.println("Opção inválida! Por favor, escolha 1 (Login) ou 2 (Registar).");
                 }
             }
 
@@ -139,7 +139,7 @@ public class Consumer {
                             String consultas = ((FrontEndClinica) client).listarConsultasServer(clientID);
                             System.out.println(consultas);
 
-                            System.out.println("Insira o ID da consulta a cancelar: ");
+                            System.out.println("Insira o número Consulta a cancelar: ");
                             int consultaID = scanner.nextInt();
                             scanner.nextLine();
 
