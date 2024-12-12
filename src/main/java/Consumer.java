@@ -10,7 +10,7 @@ import default_package.NotBoundException_Exception;
 
 public class Consumer {
 
-    public static void main(String[] args) 
+    public static void main(String[] args)
             throws NotBoundException_Exception, MalformedURLException_Exception, IOException_Exception {
 
         JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
@@ -19,9 +19,6 @@ public class Consumer {
 
         Object client = factory.create();
         Scanner scanner = new Scanner(System.in);
-        
-
-        
 
         while (true) { // Loop externo para operação contínua
             String clientIDString = "0";
@@ -31,8 +28,20 @@ public class Consumer {
                 System.out.println("1. Login");
                 System.out.println("2. Registar");
 
-                int escolha = scanner.nextInt();
-                scanner.nextLine(); // Consumir a quebra de linha
+                int escolha = 0;
+                boolean escolhaValida = false;
+
+                while (!escolhaValida) {
+                    try {
+                        System.out.print("Escolha uma opção: ");
+                        escolha = scanner.nextInt();
+                        scanner.nextLine(); // Consumir a quebra de linha
+                        escolhaValida = true;
+                    } catch (java.util.InputMismatchException e) {
+                        System.out.println("Opção inválida! Por favor insira um número inteiro.");
+                        scanner.nextLine(); // Limpar entrada inválida
+                    }
+                }
 
                 if (escolha == 1) {
                     // Lógica de login
@@ -87,13 +96,21 @@ public class Consumer {
                 System.out.println("3. Cancelar Consulta");
                 System.out.println("4. As nossas clínicas");
                 System.out.println("5. Sair");
-                System.out.print("\n");
-                System.out.print("Escolha uma opção: ");
 
-                int escolha = scanner.nextInt();
-                scanner.nextLine();
-                
-             
+                int escolha = 0;
+                boolean escolhaValida = false;
+
+                while (!escolhaValida) {
+                    try {
+                        System.out.print("Escolha uma opção: ");
+                        escolha = scanner.nextInt();
+                        scanner.nextLine();
+                        escolhaValida = true;
+                    } catch (java.util.InputMismatchException e) {
+                        System.out.println("Opção inválida! Por favor insira um número inteiro.");
+                        scanner.nextLine(); // Limpar entrada inválida
+                    }
+                }
 
                 switch (escolha) {
                     case 1:
@@ -128,7 +145,6 @@ public class Consumer {
                             int clinicaID = scanner.nextInt();
                             scanner.nextLine();
 
-
                             String especialidades = ((FrontEndClinica) client).listarEspecialidadesServer(clinicaID);
                             System.out.println(especialidades);
 
@@ -161,19 +177,16 @@ public class Consumer {
                             e.printStackTrace();
                         }
                         break;
-                        
+
                     case 4:
-                    	
-                    	
-                    	
-                	try {
+                        try {
                             String clinicas = ((FrontEndClinica) client).listarClinicasServer();
                             System.out.println(clinicas);
 
                             System.out.println("Insira o ID da clínica: ");
                             int clinicaID = scanner.nextInt();
                             scanner.nextLine();
-                            
+
                             String cord = ((FrontEndClinica) client).locClinicaServer(clinicaID);
                             String[] parts = cord.split(";");
                             double latitude = Double.parseDouble(parts[0]);
@@ -184,9 +197,6 @@ public class Consumer {
                             e.printStackTrace();
                         }
                         break;
-                    	
-                    
-                    	
 
                     case 5:
                         System.out.println("Saindo...");
@@ -195,24 +205,18 @@ public class Consumer {
 
                     default:
                         System.out.println("Opção inválida. Tente novamente.");
-                        
-                        
-                        
-                        
                 }
             }
         }
     }
-    
-    
+
     public static void openGoogleMapsInBrowser(double latitude, double longitude) {
         try {
             String googleMapsUrl = "https://www.google.com/maps?q=" + latitude + "," + longitude + "&hl=en";
             URI uri = new URI(googleMapsUrl);
-            Desktop.getDesktop().browse(uri);  // Open the URL in the default browser
+            Desktop.getDesktop().browse(uri); // Open the URL in the default browser
         } catch (Exception e) {
             e.printStackTrace();
         }
-    
-}
+    }
 }
